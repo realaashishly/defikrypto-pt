@@ -34,11 +34,10 @@ const RotatingLogo = React.memo(() => {
                 className='absolute w-full h-full animate-spin-slow'
             >
                 <Image
-                    src='/icons/defi_rec_cr.png'
+                    src='/images/defi_rec_cr.png'
                     alt='Rotating Ring'
                     layout='fill'
                     objectFit='contain'
-                    priority
                     aria-hidden='true'
                 />
             </div>

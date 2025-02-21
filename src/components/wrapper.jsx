@@ -4,7 +4,7 @@ export default function Wrapper({ children, className }) {
     return (
         <div
             className={cn(
-                'relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-inter',
+                'relative w-full md:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-inter',
                 className
             )}
         >

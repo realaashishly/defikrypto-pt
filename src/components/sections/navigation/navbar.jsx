@@ -77,12 +77,11 @@ const RotatingLogo = React.memo(() => {
                 className='absolute w-full h-full z-50'
             >
                 <Image
-                    src='/icons/defi_rec_cr.png'
+                    src='/images/defi_rec_cr.png'
                     alt='Rotating background'
                     width={64}
                     height={64}
                     className='object-contain w-full h-full z-50'
-                    priority
                     aria-hidden='true'
                 />
             </div>

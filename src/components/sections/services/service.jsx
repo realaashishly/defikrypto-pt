@@ -33,7 +33,7 @@ const portfolioWorks = [
         category: 'Development',
         description: '',
         format: 'image',
-        src: '/images/works/web3-img-1.png',
+        src: '/images/web3-img-1.png',
         services: [
             'Blockchain Integration',
             'Dapp Development',
@@ -62,7 +62,7 @@ const portfolioWorks = [
         category: 'Development',
         description: '',
         format: 'image',
-        src: '/images/works/mob-dev-img-1.png',
+        src: '/images/mob-dev-img-1.png',
         services: [
             'Mobile App Development',
             'iOS Development',
@@ -90,7 +90,7 @@ const portfolioWorks = [
         category: 'Web Development',
         description: '',
         format: 'image',
-        src: '/images/works/web-dev-img-1.png',
+        src: '/images/web-dev-img-1.png',
         services: [
             'Static Website',
             'Dynamic Website',
@@ -169,7 +169,7 @@ function PortfolioCard({ work }) {
                         width={800}
                         height={450}
                         className='object-cover w-full h-full transition-transform duration-500 hover:scale-105'
-                        loading='lazy'
+                      
                     />
                 ) : (
                     <video

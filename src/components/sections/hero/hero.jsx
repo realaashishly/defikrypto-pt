@@ -54,12 +54,11 @@ export default function Hero() {
                         <span>Fueling your growth</span>
                         <span className='relative w-10 h-10 md:w-14 md:h-14 -rotate-12 hidden md:inline-block'>
                             <Image
-                                src='/images/hero-images/image.png'
+                                src='/images/image.png'
                                 alt='Vivid Motion Logo'
                                 width={56}
                                 height={56}
                                 className='object-contain animate-float'
-                                priority
                             />
                         </span>
                     </div>
@@ -83,7 +82,7 @@ export default function Hero() {
             </div>
 
             {/* 3D Visualization with Decorative Rocks */}
-            <div className='w-full relative max-w-4xl h-[60vh] sm:h-[65vh] md:h-[75vh] max-h-[700px] mt-12 md:mt-16'>
+            <div className='w-full relative max-w-4xl h-[60vh] sm:h-[65vh] md:h-[90vh] max-h-[700px] mt-12 md:mt-16'>
                 <Spline
                     scene='https://prod.spline.design/Tq4nAM0x1iaR7TS3/scene.splinecode'
                     className='w-full h-full rounded-xl'
