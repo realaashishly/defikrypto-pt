@@ -13,25 +13,27 @@ import Pricing from "@/components/sections/pricing/pricing";
 import { Testimonial } from "@/components/sections/testinomials/testinomial";
 import AppointmentBooking from "@/components/sections/appointment/appointment";
 import FooterSection from "@/components/sections/footer/footer";
+import { Button } from "@/components/ui/button";
 
-// LoadingScreen Component
+// Loading Screen Component
 function LoadingScreen({ onEnter }) {
   const btnRef = useRef(null);
   const screenRef = useRef(null);
   const videoRef = useRef(null);
-  const [videoEnded, setVideoEnded] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
+  // Show button after 15 seconds
   useEffect(() => {
-    // Hide the button initially and show after 15 sec
     const timer = setTimeout(() => {
-      setVideoEnded(true);
-    }, 15000); 
+      setShowButton(true);
+    }, 15000); // 15 seconds delay
 
     return () => clearTimeout(timer);
   }, []);
 
+  // GSAP animation for button
   useGSAP(() => {
-    if (videoEnded) {
+    if (showButton) {
       gsap.to(btnRef.current, {
         opacity: 1,
         scale: 1,
@@ -39,10 +41,10 @@ function LoadingScreen({ onEnter }) {
         ease: "power2.out",
       });
     }
-  }, [videoEnded]);
+  }, [showButton]);
 
   return (
-    <div ref={screenRef} className="fixed inset-0 z-50 flex items-center justify-center bg-black loading-screen">
+    <div ref={screenRef} className="fixed inset-0 z-50 flex items-center justify-center bg-black">
       <video
         ref={videoRef}
         src="/loader/loader.mp4"
@@ -50,20 +52,21 @@ function LoadingScreen({ onEnter }) {
         muted
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="w-full h-full object-cover absolute"
         aria-label="Loading animation"
+        onEnded={() => setShowButton(true)} // Show button when video ends
       />
-      {videoEnded && (
+      
+      {showButton && (
         <div className="absolute bottom-16 z-10">
-          <button
+          <Button
             ref={btnRef}
             onClick={onEnter}
-            className="px-6 py-3 border border-white/90 text-white rounded-md 
-                  hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none
-                  backdrop-blur-sm shadow-lg opacity-0 scale-90 z-40"
+            variant="outline"
+            className="px-6 py-3 text-white border border-white rounded-md opacity-0 scale-90 transition-all duration-300 hover:scale-105 active:scale-95"
           >
             Enter Site
-          </button>
+          </Button>
         </div>
       )}
     </div>
@@ -90,7 +93,7 @@ export default function HomePage() {
       {/* Show the loading screen until user clicks "Enter" */}
       {!entered && <LoadingScreen onEnter={() => setEntered(true)} />}
 
-      {/* Preload all content but keep it hidden until loader finishes */}
+      {/* Load the main content in the background */}
       <div className={`transition-opacity duration-700 ${entered ? "opacity-100" : "opacity-0"}`}>
         <Wrapper>
           <Navbar />

@@ -53,7 +53,7 @@ export default function Hero() {
                 <h1 className="text-3xl sm:text-5xl font-bold uppercase leading-tight">
                     <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
                         <span>Fueling your growth</span>
-                        <span className="relative w-10 h-10 md:w-14 md:h-14 -rotate-12">
+                        <span className="relative w-10 h-10 md:w-14 md:h-14 -rotate-12 hidden md:inline-block">
                             <Image
                                 src="/images/hero-images/image.png"
                                 alt="Vivid Motion Logo"
@@ -108,9 +108,7 @@ export default function Hero() {
             </div>
 
             {/* Additional Rock Decorations */}
-            <div ref={rock1Ref} className="absolute left-24 top-36rm -rf node_modules package-lock.json
-npm install
- -z-10 w-[22%] max-w-[180px] sm:max-w-[200px]">
+            <div ref={rock1Ref} className="absolute left-24 top-36 -z-10 w-[22%] max-w-[180px] sm:max-w-[200px]">
                 <Image
                     src="/images/bg/rock1.svg"
                     alt="Decorative rock 1"
