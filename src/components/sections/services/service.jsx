@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button';
@@ -101,24 +101,26 @@ function PortfolioCard({ work }) {
     const servicesRefs = useRef([]);
     const titleRef = useRef(null);
     const categoryRef = useRef(null);
+    const cardRef = useRef(null);
     const tl = useRef(null);
 
-    // Helper to add each service <p> element to the refs array.
+    // Function to add elements to refs array
     const addToRefs = (el) => {
         if (el && !servicesRefs.current.includes(el)) {
             servicesRefs.current.push(el);
         }
     };
 
-    // Build the GSAP timeline after the component mounts.
     useLayoutEffect(() => {
+        if (!cardRef.current) return;
+
         tl.current = gsap.timeline({ paused: true });
+
         tl.current
             .from(servicesRefs.current, {
                 x: -50,
                 opacity: 0,
                 duration: 0.5,
-                delay: 0.2,
                 stagger: 0.1,
                 ease: 'power2.out',
             })
@@ -128,24 +130,29 @@ function PortfolioCard({ work }) {
                     y: 20,
                     opacity: 0,
                     duration: 0.4,
-                    delay: 0.2,
                     ease: 'power2.out',
                 },
                 '-=0.3'
             );
     }, []);
 
-    // Play animation on hover, reverse on mouse leave.
     const handleMouseEnter = () => {
-        tl.current.play();
+        if (tl.current) {
+            console.log('Mouse Enter - Playing Animation');
+            tl.current.play();
+        }
     };
 
     const handleMouseLeave = () => {
-        tl.current.reverse();
+        if (tl.current) {
+            console.log('Mouse Leave - Reversing Animation');
+            tl.current.reverse();
+        }
     };
 
     return (
         <article
+            ref={cardRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className='relative overflow-hidden rounded-xl border border-transparent transition-all duration-300 shadow-lg hover:shadow-xl bg-brand-yellow/5 cursor-pointer'
@@ -177,13 +184,12 @@ function PortfolioCard({ work }) {
             {/* Background Overlay */}
             <div className='absolute inset-0 transition-all duration-500 bg-black bg-opacity-5 hover:bg-opacity-90' />
 
-            {/* Text Overlay (pointer-events-none so that hover events pass through) */}
+            {/* Text Overlay */}
             <div className='absolute inset-0 pointer-events-none flex justify-between items-end p-6'>
-                {/* Services on the Left */}
                 <div className='flex flex-col space-y-1'>
-                    {work.services.map((service) => (
+                    {work.services.map((service, index) => (
                         <p
-                            key={service}
+                            key={index}
                             ref={addToRefs}
                             className='text-sm text-brand-yellow'
                         >
@@ -192,7 +198,6 @@ function PortfolioCard({ work }) {
                     ))}
                 </div>
 
-                {/* Title and Category on the Right */}
                 <div className='absolute bottom-6 right-6 space-y-2 text-right'>
                     <h3
                         ref={titleRef}
@@ -213,41 +218,8 @@ function PortfolioCard({ work }) {
 }
 
 export default function Service() {
-    const rock1Ref = useRef(null);
-    const rock3Ref = useRef(null);
-    const rock6Ref = useRef(null);
-    const rock4Ref = useRef(null);
-
-    useLayoutEffect(() => {
-        const rocks = [
-            { ref: rock1Ref, x: -130, y: 120 },
-            { ref: rock3Ref, x: 140, y: -120 },
-            { ref: rock6Ref, x: -120, y: 130 },
-            { ref: rock4Ref, x: 130, y: -110 },
-        ];
-
-        rocks.forEach(({ ref, x, y }) => {
-            if (ref.current) {
-                gsap.fromTo(
-                    ref.current,
-                    { x: 0, y: 0 },
-                    {
-                        x,
-                        y,
-                        scrollTrigger: {
-                            trigger: ref.current,
-                            start: 'top bottom',
-                            end: 'bottom top',
-                            scrub: true,
-                        },
-                    }
-                );
-            }
-        });
-    }, []);
     return (
         <section className='w-full min-h-screen flex flex-col space-y-24 lg:space-y-36 px-4 md:px-8 my-36 relative'>
-            {/* Header Section */}
             <div className='flex flex-col justify-center items-center space-y-8'>
                 <CustomBadge className='text-brand-yellow border-brand-yellow/20'>
                     <Layers size={24} />
@@ -255,9 +227,7 @@ export default function Service() {
                 </CustomBadge>
                 <div className='max-w-3xl lg:max-w-4xl mx-auto text-center space-y-4 md:space-y-6'>
                     <h1 className='text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight md:leading-relaxed'>
-                        Featured Portfolio<span className='sr-only'>®</span>
-                        <sup className='hidden md:inline-block text-base ml-1'>
-                        </sup>
+                        Featured Portfolio
                     </h1>
                     <p className='text-base md:text-lg lg:text-xl text-muted-foreground leading-snug md:leading-relaxed max-w-2xl mx-auto px-4'>
                         Explore a collection of high-quality, innovative designs
@@ -273,7 +243,7 @@ export default function Service() {
                     </InteractiveHoverButton>
                 </Link>
             </div>
-            {/* Portfolio Grid */}
+
             <div className='w-full max-w-7xl mx-auto'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8'>
                     {portfolioWorks.map((work) => (
@@ -283,41 +253,6 @@ export default function Service() {
                         />
                     ))}
                 </div>
-            </div>
-
-            <div className='absolute inset-0'>
-                <Image
-                    ref={rock1Ref}
-                    src='/images/bg/rock1.svg'
-                    alt='Decorative rock 1'
-                    width={200}
-                    height={200}
-                    className='absolute left-24 top-0 -z-10 will-change-transform'
-                />
-                <Image
-                    ref={rock3Ref}
-                    src='/images/bg/rock3.svg'
-                    alt='Decorative rock 3'
-                    width={200}
-                    height={200}
-                    className='absolute right-24 top-72 -z-10 will-change-transform'
-                />
-                <Image
-                    ref={rock6Ref}
-                    src='/images/bg/rock6.svg'
-                    alt='Decorative rock 6'
-                    width={200}
-                    height={200}
-                    className='absolute right-0 bottom-72 -z-10 will-change-transform'
-                />
-                <Image
-                    ref={rock4Ref}
-                    src='/images/bg/rock4.svg'
-                    alt='Decorative rock 4'
-                    width={200}
-                    height={200}
-                    className='absolute left-24 bottom-0 -z-10 will-change-transform'
-                />
             </div>
         </section>
     );
