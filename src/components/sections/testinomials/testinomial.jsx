@@ -93,7 +93,7 @@ export function Testimonial() {
             </div>
             <AnimatedTestimonials testimonials={testimonials} />
 
-            <div className='absolute inset-0'>
+            <div className='absolute inset-0 -z-10'>
                 {["rock1", "rock3", "rock5", "rock2"].map((rock, index) => (
                     <Image
                         key={index}

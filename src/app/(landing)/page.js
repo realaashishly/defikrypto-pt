@@ -14,6 +14,7 @@ import { Testimonial } from "@/components/sections/testinomials/testinomial";
 import AppointmentBooking from "@/components/sections/appointment/appointment";
 import FooterSection from "@/components/sections/footer/footer";
 import { Button } from "@/components/ui/button";
+import AboutPartner from "@/components/sections/partners/Aboutpartner";
 
 // Loading Screen Component
 function LoadingScreen({ onEnter }) {
@@ -99,6 +100,7 @@ export default function HomePage() {
           <Navbar />
           <Hero />
           <About />
+          {/* <AboutPartner /> */} 
           <Rotation />
           <Service />
           <Partner />

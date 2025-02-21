@@ -1,12 +1,15 @@
 'use client';
-import { useEffect, useLayoutEffect, useRef } from 'react';
-import gsap from 'gsap';
 import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button';
 import CustomBadge from '@/components/ui/customBadge';
+import gsap from 'gsap';
 import { Layers } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Wrapper from '@/components/wrapper';
+import { useLayoutEffect, useRef } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const portfolioWorks = [
     {
@@ -218,6 +221,41 @@ function PortfolioCard({ work }) {
 }
 
 export default function Service() {
+    const rock1Ref = useRef(null);
+    const rock3Ref = useRef(null);
+    const rock6Ref = useRef(null);
+
+    useGSAP(() => {
+        gsap.to(rock1Ref.current, {
+            x: -100, // Move left
+            y: 50, // Move down
+            scrollTrigger: {
+                trigger: rock1Ref.current,
+                start: 'top bottom',
+                scrub: 1,
+            },
+        });
+
+        gsap.to(rock3Ref.current, {
+            x: 80, // Move right
+            y: -50, // Move up
+            scrollTrigger: {
+                trigger: rock3Ref.current,
+                start: 'top bottom',
+                scrub: 1,
+            },
+        });
+
+        gsap.to(rock6Ref.current, {
+            x: -50, // Move left
+            y: -100, // Move up
+            scrollTrigger: {
+                trigger: rock6Ref.current,
+                start: 'top bottom',
+                scrub: 1,
+            },
+        });
+    }, []);
     return (
         <section className='w-full min-h-screen flex flex-col space-y-24 lg:space-y-36 px-4 md:px-8 my-36 relative'>
             <div className='flex flex-col justify-center items-center space-y-8'>
@@ -253,6 +291,47 @@ export default function Service() {
                         />
                     ))}
                 </div>
+            </div>
+
+            <div
+                ref={rock3Ref}
+                className='absolute -z-10 top-32 right-0 w-[20%] max-w-[150px] sm:max-w-[180px]'
+            >
+                <Image
+                    src='/images/bg/rock3.svg'
+                    alt='Decorative rock 3'
+                    width={150}
+                    height={150}
+                    className='object-contain'
+                />
+            </div>
+
+            {/* Rock 1 */}
+            <div
+                ref={rock1Ref}
+                className='absolute -z-10 top-0 left-0 w-[18%] max-w-[140px] sm:max-w-[160px]'
+            >
+                <Image
+                    src='/images/bg/rock1.svg'
+                    alt='Decorative rock 1'
+                    width={160}
+                    height={160}
+                    className='object-contain'
+                />
+            </div>
+
+            {/* Rock 6 */}
+            <div
+                ref={rock6Ref}
+                className='absolute -z-10 -bottom-6 left-0 w-[18%] max-w-[140px] sm:max-w-[160px]'
+            >
+                <Image
+                    src='/images/bg/rock6.svg'
+                    alt='Decorative rock 6'
+                    width={160}
+                    height={160}
+                    className='object-contain'
+                />
             </div>
         </section>
     );
