@@ -108,7 +108,9 @@ export default function Hero() {
             </div>
 
             {/* Additional Rock Decorations */}
-            <div ref={rock1Ref} className="absolute left-24 top-36 -z-10 w-[22%] max-w-[180px] sm:max-w-[200px]">
+            <div ref={rock1Ref} className="absolute left-24 top-36rm -rf node_modules package-lock.json
+npm install
+ -z-10 w-[22%] max-w-[180px] sm:max-w-[200px]">
                 <Image
                     src="/images/bg/rock1.svg"
                     alt="Decorative rock 1"
