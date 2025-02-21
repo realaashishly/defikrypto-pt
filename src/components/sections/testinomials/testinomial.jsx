@@ -1,11 +1,28 @@
 'use client';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import { AnimatedTestimonials } from '@/components/ui/animated-testimonials';
 import CustomBadge from '@/components/ui/customBadge';
 import { CircleUser } from 'lucide-react';
 import Link from 'next/link';
 import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button';
+import Image from 'next/image';
 
 export function Testimonial() {
+    const rockRefs = useRef([]);
+
+    useEffect(() => {
+        gsap.to(rockRefs.current, {
+            y: '+=20',
+            rotation: '+=5',
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: 'power1.inOut',
+            stagger: 0.2,
+        });
+    }, []);
+
     const testimonials = [
         {
             id: 1,
@@ -52,8 +69,8 @@ export function Testimonial() {
     ];
 
     return (
-        <div className='w-full min-h-screen flex flex-col space-y-24 px-4 md:px-8 my-36'>
-            <div className='flex flex-col justify-center items-center space-y-8'>
+        <div className='w-full min-h-screen flex flex-col space-y-24 px-4 md:px-8 my-24 relative'>
+            <div className='flex flex-col justify-center items-center space-y-8 relative'>
                 <CustomBadge className='text-brand-yellow border-brand-yellow/20'>
                     <CircleUser size={24} />
                     <p>Testimonial</p>
@@ -64,22 +81,38 @@ export function Testimonial() {
                         Trusted By Experts<span className='sr-only'>.</span>
                     </h1>
                     <p className='text-base md:text-lg lg:text-xl text-muted-foreground leading-snug md:leading-relaxed max-w-2xl mx-auto px-4'>
-                        Real stories from real clients. See how our designs have
-                        transformed international and elevated businesses, and
-                        created lasting impressions.
+                        Real stories from real clients. See how our designs have transformed international and elevated businesses, and created lasting impressions.
                     </p>
                 </div>
 
-                <Link
-                    href='#'
-                    className='group transition-transform hover:scale-105 active:scale-95'
-                >
+                <Link href='#' className='group transition-transform hover:scale-105 active:scale-95'>
                     <InteractiveHoverButton className='px-8 py-4 text-sm md:text-base'>
                         Become a partner
                     </InteractiveHoverButton>
                 </Link>
             </div>
             <AnimatedTestimonials testimonials={testimonials} />
+
+            <div className='absolute inset-0'>
+                {["rock1", "rock3", "rock5", "rock2"].map((rock, index) => (
+                    <Image
+                        key={index}
+                        ref={(el) => (rockRefs.current[index] = el)}
+                        src={`/images/bg/${rock}.svg`}
+                        alt={`Decorative ${rock}`}
+                        width={200}
+                        height={200}
+                        className='absolute -z-10 will-change-transform'
+                        style={{
+                            left: index % 2 === 0 ? '24px' : 'auto',
+                            right: index % 2 !== 0 ? '24px' : 'auto',
+                            top: index === 1 ? '52px' : index === 0 ? '0' : 'auto',
+                            bottom: index > 1 ? '0' : 'auto',
+                            transform: index === 2 ? 'rotate(45deg)' : 'none',
+                        }}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

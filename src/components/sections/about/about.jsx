@@ -1,7 +1,6 @@
 'use client';
-import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button';
-import Link from 'next/link';
 import { TextReveal } from '@/components/magicui/text-reveal';
+import Wrapper from '@/components/wrapper';
 
 export default function About() {
     return (
@@ -14,17 +13,17 @@ export default function About() {
                 <h3 className='text-2xl md:text-3xl font-bold leading-snug md:leading-tight'>
                     <TextReveal
                         text="As a digital designer based in Delhi, I specialize in
-                creating immersive visual experiences that captivate and
-                engage audiences. My expertise spans crafting realistic
-                renderings to developing dynamic animations and interactive
-                designs, all tailored to elevate your brand's presence."
+                        creating immersive visual experiences that captivate and
+                        engage audiences. My expertise spans crafting realistic
+                        renderings to developing dynamic animations and interactive
+                        designs, all tailored to elevate your brand's presence."
                     />
                 </h3>
                 {/* <Link href='#'>
-                    <InteractiveHoverButton className='px-6 py-3 text-base md:text-lg'>
-                        Get in touch
-                    </InteractiveHoverButton>
-                </Link> */}
+                            <InteractiveHoverButton className='px-6 py-3 text-base md:text-lg'>
+                                Get in touch
+                            </InteractiveHoverButton>
+                        </Link> */}
             </div>
         </div>
     );

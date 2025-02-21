@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
 import {
     Card,
     CardContent,
@@ -10,11 +9,12 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
-import { CheckCircle2, CircleDollarSign, DollarSign } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 import CustomBadge from '@/components/ui/customBadge';
-
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Wrapper from '@/components/wrapper';
+import { cn } from '@/lib/utils';
+import { CheckCircle2, CircleDollarSign } from 'lucide-react';
+import { useState } from 'react';
 // PricingHeader Component
 const PricingHeader = ({ title, subtitle }) => (
     <div className='flex flex-col justify-center items-center space-y-8'>
@@ -213,23 +213,25 @@ export default function Pricing() {
     ];
 
     return (
-        <div className='w-full min-h-screen flex flex-col space-y-24 px-4 md:px-8 my-36'>
-            <div className='flex flex-col justify-center items-center space-y-8'>
-                <PricingHeader
-                    title='Pricing Plans'
-                    subtitle="Choose the plan that's right for you"
-                />
-                <PricingSwitch onSwitch={togglePricingPeriod} />
-            </div>
-            <section className='flex flex-col sm:flex-row sm:flex-wrap justify-center gap-8 mt-8'>
-                {plans.map((plan) => (
-                    <PricingCard
-                        key={plan.title}
-                        {...plan}
-                        isYearly={isYearly}
+        <Wrapper>
+            <div className='w-full min-h-screen flex flex-col space-y-24 px-4 md:px-8 my-36'>
+                <div className='flex flex-col justify-center items-center space-y-8'>
+                    <PricingHeader
+                        title='Pricing Plans'
+                        subtitle="Choose the plan that's right for you"
                     />
-                ))}
-            </section>
-        </div>
+                    <PricingSwitch onSwitch={togglePricingPeriod} />
+                </div>
+                <section className='flex flex-col sm:flex-row sm:flex-wrap justify-center gap-8 mt-8'>
+                    {plans.map((plan) => (
+                        <PricingCard
+                            key={plan.title}
+                            {...plan}
+                            isYearly={isYearly}
+                        />
+                    ))}
+                </section>
+            </div>
+        </Wrapper>
     );
 }
