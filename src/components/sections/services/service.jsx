@@ -257,7 +257,7 @@ export default function Service() {
         });
     }, []);
     return (
-        <section className='w-full min-h-screen flex flex-col space-y-24 lg:space-y-36 px-4 md:px-8 my-36 relative'>
+        <section className='w-full flex flex-col space-y-24 lg:space-y-36 px-4 md:px-8 relative overflow-hidden  my-12'>
             <div className='flex flex-col justify-center items-center space-y-8'>
                 <CustomBadge className='text-brand-yellow border-brand-yellow/20'>
                     <Layers size={24} />
@@ -295,7 +295,7 @@ export default function Service() {
 
             <div
                 ref={rock3Ref}
-                className='absolute -z-10 top-32 right-0 w-[20%] max-w-[150px] sm:max-w-[180px]'
+                className='absolute -z-10 top-32 right-24 w-[20%] max-w-[150px] sm:max-w-[180px]'
             >
                 <Image
                     src='/images/bg/rock3.svg'
@@ -309,7 +309,7 @@ export default function Service() {
             {/* Rock 1 */}
             <div
                 ref={rock1Ref}
-                className='absolute -z-10 top-0 left-0 w-[18%] max-w-[140px] sm:max-w-[160px]'
+                className='absolute -z-10 top-0 left-24 w-[18%] max-w-[140px] sm:max-w-[160px]'
             >
                 <Image
                     src='/images/bg/rock1.svg'

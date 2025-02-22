@@ -213,25 +213,23 @@ export default function Pricing() {
     ];
 
     return (
-        <Wrapper>
-            <div className='w-full min-h-screen flex flex-col space-y-24 px-4 md:px-8 my-36'>
-                <div className='flex flex-col justify-center items-center space-y-8'>
-                    <PricingHeader
-                        title='Pricing Plans'
-                        subtitle="Choose the plan that's right for you"
-                    />
-                    <PricingSwitch onSwitch={togglePricingPeriod} />
-                </div>
-                <section className='flex flex-col sm:flex-row sm:flex-wrap justify-center gap-8 mt-8'>
-                    {plans.map((plan) => (
-                        <PricingCard
-                            key={plan.title}
-                            {...plan}
-                            isYearly={isYearly}
-                        />
-                    ))}
-                </section>
+        <div className='w-full min-h-screen flex flex-col space-y-24 px-4 md:px-8 overflow-hidden my-12'>
+            <div className='flex flex-col justify-center items-center space-y-8'>
+                <PricingHeader
+                    title='Pricing Plans'
+                    subtitle="Choose the plan that's right for you"
+                />
+                <PricingSwitch onSwitch={togglePricingPeriod} />
             </div>
-        </Wrapper>
+            <section className='flex flex-col sm:flex-row sm:flex-wrap justify-center gap-8 mt-8'>
+                {plans.map((plan) => (
+                    <PricingCard
+                        key={plan.title}
+                        {...plan}
+                        isYearly={isYearly}
+                    />
+                ))}
+            </section>
+        </div>
     );
 }

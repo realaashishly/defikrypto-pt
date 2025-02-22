@@ -1,20 +1,15 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
-import Wrapper from "@/components/wrapper";
-import Navbar from "@/components/sections/navigation/navbar";
-import Hero from "@/components/sections/hero/hero";
 import About from "@/components/sections/about/about";
-import Rotation from "@/components/sections/rotation/rotation";
-import Service from "@/components/sections/services/service";
-import Partner from "@/components/sections/partners/partner";
-import Pricing from "@/components/sections/pricing/pricing";
-import { Testimonial } from "@/components/sections/testinomials/testinomial";
 import AppointmentBooking from "@/components/sections/appointment/appointment";
 import FooterSection from "@/components/sections/footer/footer";
-import { Button } from "@/components/ui/button";
-import AboutPartner from "@/components/sections/partners/Aboutpartner";
+import Hero from "@/components/sections/hero/hero";
+import Navbar from "@/components/sections/navigation/navbar";
+import Partner from "@/components/sections/partners/partner";
+import Pricing from "@/components/sections/pricing/pricing";
+import Rotation from "@/components/sections/rotation/rotation";
+import Service from "@/components/sections/services/service";
+import { Testimonial } from "@/components/sections/testinomials/testinomial";
+import Wrapper from "@/components/wrapper";
 
 // Loading Screen Component
 // function LoadingScreen({ onEnter }) {
@@ -96,21 +91,22 @@ export default function HomePage() {
 
       {/* Load the main content in the background */}
       {/* <div className={`transition-opacity duration-700 ${entered ? "opacity-100" : "opacity-0"}`}> */}
-        <Wrapper>
-          <Navbar />
-          <Hero />
-          <About />
-          {/* <AboutPartner /> */}
-          <Rotation />
-          <Partner />
-          <Service />
-          <Partner />
-          <Pricing />
-          <Testimonial />
-          <AppointmentBooking />
-          <FooterSection />
-        </Wrapper>
-      {/* </div> */}
+      <Wrapper>
+        <Navbar />
+        <Hero />
+        <About />
+        <Rotation />
+        <Partner />
+        <Service />
+        <Partner />
+        <Pricing />
+        <Testimonial />
+        <AppointmentBooking />
+        <FooterSection />
+      </Wrapper>
     </div>
+    // </div>
+
+
   );
 }

@@ -46,13 +46,15 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className='flex flex-col relative items-center justify-center w-full px-6 py-12 md:py-20 lg:py-24 xl:py-28 mb-24 md:mb-36'>
+        <section className='flex flex-col relative items-center justify-center w-full px-1 py-12 md:py-20 lg:py-24 xl:py-28 overflow-hidden my-12'>
             {/* Text Content */}
-            <div className='max-w-4xl relative text-center flex flex-col items-center gap-6'>
-                <h1 className='text-3xl sm:text-5xl font-bold uppercase leading-tight'>
-                    <div className='flex flex-wrap items-center justify-center gap-3 md:gap-4'>
+            <div className='w-full md:max-w-4xl relative text-center flex flex-col items-center gap-6 p-1 sm:p-6 '>
+                {/* Heading */}
+                <h1 className='text-2xl sm:text-5xl  font-bold uppercase leading-tight '>
+                    <div className='flex flex-wrap items-center justify-center gap-3 sm:gap-4'>
                         <span>Fueling your growth</span>
-                        <span className='relative w-10 h-10 md:w-14 md:h-14 -rotate-12 hidden md:inline-block'>
+                        {/* Image inside heading */}
+                        <span className='relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 -rotate-12 hidden sm:inline-block -mt-12'>
                             <Image
                                 src='/images/image.png'
                                 alt='Vivid Motion Logo'
@@ -65,33 +67,34 @@ export default function Hero() {
                     <span>in web3 solutions with</span>
                     <TextPressure
                         text='Limitless ✦ Creativity'
-                        className='mt-2 md:mt-4'
                         fontFamily='inter'
                         textColor='#D9B343'
                         minFontSize={5}
                     />
                 </h1>
+
+                {/* Button */}
                 <Link
                     href='#'
                     className='group transition-transform hover:scale-105 active:scale-95'
                 >
-                    <InteractiveHoverButton className='px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg'>
+                    <InteractiveHoverButton className='px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg lg:text-xl'>
                         Book a call
                     </InteractiveHoverButton>
                 </Link>
             </div>
 
             {/* 3D Visualization with Decorative Rocks */}
-            <div className='w-full relative max-w-4xl h-[60vh] sm:h-[65vh] md:h-[90vh] max-h-[700px] mt-12 md:mt-16'>
+            <div className='w-full relative max-w-4xl h-[60vh] sm:h-[65vh] md:h-[95vh] max-h-[700px] mt-12 md:mt-16'>
                 <Spline
                     scene='https://prod.spline.design/Tq4nAM0x1iaR7TS3/scene.splinecode'
-                    className='w-full h-full rounded-xl'
+                    className='w-full h-full rounded-xl object-contain'
                 />
 
                 {/* Rock 3 */}
-                <div className='absolute z-10 -bottom-6 right-0 w-[20%] max-w-[150px] sm:max-w-[180px]'>
+                <div className='absolute z-10 -bottom-6 right-0 md:-right-0 md:-bottom-24  w-[24%] max-w-[150px] sm:max-w-[200px] rotate-90'>
                     <Image
-                        src='/images/bg/rock3.svg'
+                        src='/images/bg/rock4.svg'
                         alt='Decorative rock 3'
                         width={150}
                         height={150}
@@ -102,7 +105,7 @@ export default function Hero() {
                 {/* Rock 1 */}
                 <div
                     ref={rock1Ref}
-                    className='absolute z-10 top-0 left-0 w-[18%] max-w-[140px] sm:max-w-[160px]'
+                    className='absolute z-10 top-0 left-0  w-[18%] max-w-[140px] sm:max-w-[160px]'
                 >
                     <Image
                         src='/images/bg/rock1.svg'
@@ -113,11 +116,10 @@ export default function Hero() {
                     />
                 </div>
             </div>
-
-            {/* Additional Rock Decorations */}
+            {/* Rock 1 */}
             <div
                 ref={rock1Ref}
-                className='absolute left-24 top-36 -z-10 w-[22%] max-w-[180px] sm:max-w-[200px]'
+                className='absolute left-36 md:left-44 top-36 -z-10 w-[22%] max-w-[180px] sm:max-w-[160px]'
             >
                 <Image
                     src='/images/bg/rock1.svg'
@@ -131,7 +133,7 @@ export default function Hero() {
             {/* Rock 2 */}
             <div
                 ref={rock2Ref}
-                className='absolute right-24 top-48 z-10 w-[24%] max-w-[190px] sm:max-w-[220px]'
+                className='absolute right-36 md:right-56 top-56 z-10 w-[24%] max-w-[190px] sm:max-w-[160px]'
             >
                 <Image
                     src='/images/bg/rock2.svg'

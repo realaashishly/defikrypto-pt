@@ -1,6 +1,7 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import { AnimatedTestimonials } from '@/components/ui/animated-testimonials';
 import CustomBadge from '@/components/ui/customBadge';
 import { CircleUser } from 'lucide-react';
@@ -8,12 +9,14 @@ import Link from 'next/link';
 import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button';
 import Image from 'next/image';
 
+gsap.registerPlugin(useGSAP);
+
 export function Testimonial() {
     const rockRefs = useRef([]);
 
-    useEffect(() => {
+    useGSAP(() => {
         gsap.to(rockRefs.current, {
-            y: '+=20',
+            y: '+=40',
             rotation: '+=5',
             duration: 3,
             repeat: -1,
@@ -69,7 +72,7 @@ export function Testimonial() {
     ];
 
     return (
-        <div className='w-full min-h-screen flex flex-col space-y-24 px-4 md:px-8 my-24 relative'>
+        <div className='w-full flex flex-col px-4 md:px-8 relative overflow-hidden my-12'>
             <div className='flex flex-col justify-center items-center space-y-8 relative'>
                 <CustomBadge className='text-brand-yellow border-brand-yellow/20'>
                     <CircleUser size={24} />
@@ -93,26 +96,16 @@ export function Testimonial() {
             </div>
             <AnimatedTestimonials testimonials={testimonials} />
 
-            <div className='absolute inset-0 -z-10'>
-                {["rock1", "rock3", "rock5", "rock2"].map((rock, index) => (
-                    <Image
-                        key={index}
-                        ref={(el) => (rockRefs.current[index] = el)}
-                        src={`/images/bg/${rock}.svg`}
-                        alt={`Decorative ${rock}`}
-                        width={200}
-                        height={200}
-                        className='absolute -z-10 will-change-transform'
-                        style={{
-                            left: index % 2 === 0 ? '24px' : 'auto',
-                            right: index % 2 !== 0 ? '24px' : 'auto',
-                            top: index === 1 ? '52px' : index === 0 ? '0' : 'auto',
-                            bottom: index > 1 ? '0' : 'auto',
-                            transform: index === 2 ? 'rotate(45deg)' : 'none',
-                        }}
-                    />
-                ))}
-            </div>
+            {/* Rock Images with GSAP Animation */}
+            {['/images/bg/rock1.svg', '/images/bg/rock2.svg', '/images/bg/rock3.svg'].map((src, index) => (
+                <div
+                    key={index}
+                    ref={(el) => (rockRefs.current[index] = el)}
+                    className={`absolute ${index === 0 ? 'left-6 top-36' : index === 1 ? 'right-6 top-48' : 'right-6 bottom-12'} -z-10 w-[22%] max-w-[200px] sm:max-w-[160px]`}
+                >
+                    <Image src={src} alt={`Decorative rock ${index + 1}`} width={220} height={220} className='object-contain' />
+                </div>
+            ))}
         </div>
     );
 }

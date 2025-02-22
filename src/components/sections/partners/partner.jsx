@@ -28,7 +28,7 @@ const RotatingLogo = React.memo(() => {
     }, []);
 
     return (
-        <div className='relative flex justify-center items-center w-32 h-32 sm:w-40 sm:h-40 my-8'>
+        <div className='relative flex justify-center items-center w-28 h-28 sm:w-40 sm:h-40'>
             <div
                 ref={ringRef}
                 className='absolute w-full h-full animate-spin-slow'
@@ -68,8 +68,7 @@ export default function Partner() {
     const secondRow = partners.slice(halfIndex);
 
     return (
-        <Wrapper>
-            <div className='flex flex-col items-center justify-center w-full  py-12'>
+            <div className='flex flex-col items-center justify-center w-full  py-12 my-12'>
                 <div className='mb-12'>
                     <h5 className='text-xl uppercase text-center'>
                         Our Esteemed Partners
@@ -88,7 +87,7 @@ export default function Partner() {
                         ))}
                     </Marquee>
                     <div className='absolute w-full flex justify-center my-8 overflow-hidden'>
-                        <div className='glassmorphic-card w-60 h-60 sm:w-72 sm:h-72 flex items-center justify-center rounded-full border border-yellow-500/20 z-10'>
+                        <div className='glassmorphic-card w-40 h-40 sm:w-72 sm:h-72 flex items-center justify-center rounded-full border border-yellow-500/20 z-10'>
                             <RotatingLogo />
                         </div>
                     </div>
@@ -129,6 +128,5 @@ export default function Partner() {
                     }
                 `}</style>
             </div>
-        </Wrapper>
     );
 }

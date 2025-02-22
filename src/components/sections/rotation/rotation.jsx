@@ -15,8 +15,8 @@ export default function Rotation() {
     }, []);
 
     return (
-        <Wrapper>
-            <div className='relative w-full min-h-screen overflow-hidden mt-16'>
+        <>
+            <div className='relative w-full hidden md:block my-12'>
                 <div className='relative flex min-h-screen w-full flex-col items-center justify-center'>
                     {/* Center logo */}
                     <div className='absolute inset-0 flex items-center justify-center'>
@@ -27,6 +27,7 @@ export default function Rotation() {
                             height={120}
                         />
                     </div>
+
                     <OrbitingCircles
                         ref={(el) => orbitRefs.current.push(el)}
                         iconSize={300} // Increased button size
@@ -38,7 +39,7 @@ export default function Rotation() {
                     <OrbitingCircles
                         ref={(el) => orbitRefs.current.push(el)}
                         iconSize={300}
-                        radius={380} // Second ring radius
+                        radius={200} // Second ring radius
                         reverse
                         speed={2}
                     >
@@ -48,7 +49,7 @@ export default function Rotation() {
                     <OrbitingCircles
                         ref={(el) => orbitRefs.current.push(el)}
                         iconSize={300}
-                        radius={300} // Third ring radius
+                        radius={250} // Third ring radius
                         reverse
                         speed={3}
                     >
@@ -58,7 +59,7 @@ export default function Rotation() {
                     <OrbitingCircles
                         ref={(el) => orbitRefs.current.push(el)}
                         iconSize={300}
-                        radius={200} // Fourth ring radius
+                        radius={300} // Fourth ring radius
                         reverse
                         speed={4}
                     >
@@ -68,17 +69,17 @@ export default function Rotation() {
                     <OrbitingCircles
                         ref={(el) => orbitRefs.current.push(el)}
                         iconSize={300}
-                        radius={100} // Fifth ring radius
+                        radius={350} // Fifth ring radius
                         reverse
                         speed={5}
                     >
                         <Icons.coin9 />
                         <Icons.coin10 />
                     </OrbitingCircles>
-                    {/* Background Cubes */}
                 </div>
             </div>
-        </Wrapper>
+            
+        </>
     );
 }
 

@@ -49,7 +49,7 @@ const SocialLinks = React.memo(() => (
             >
                 <div
                     dangerouslySetInnerHTML={{ __html: icon.icon }}
-                    className='w-5 h-5 sm:w-6 sm:h-6 transition-colors duration-300 hover:text-brand-primary'
+                    className='w-6 h-6 sm:w-7 sm:h-7 transition-colors duration-300 hover:text-brand-primary'
                 />
             </Link>
         ))}
@@ -71,7 +71,7 @@ const RotatingLogo = React.memo(() => {
     }, []);
 
     return (
-        <div className='relative flex justify-start items-center w-16 h-16 sm:w-20 sm:h-20'>
+        <div className='relative flex justify-start items-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24'>
             <div
                 ref={ringRef}
                 className='absolute w-full h-full z-50'
@@ -101,41 +101,39 @@ const RotatingLogo = React.memo(() => {
 
 export default function Navbar() {
     return (
-        <Wrapper>
-            <nav className=' relative px-4 py-3 sm:px-6 sm:py-4 lg:px-8 lg:py-6 flex items-center justify-between w-full max-w-8xl mx-auto mt-6'>
-                {/* Logo aligned left */}
-                <Link
-                    href='/'
-                    className='flex items-center'
-                >
-                    <RotatingLogo />
-                </Link>
-                {/* Branding – hidden on small devices */}
-                <h1 className='hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 sm:block text-xl sm:text-2xl lg:text-4xl font-black tracking-tight text-center'>
-                    DappRush<span className='text-brand-primary'>.</span>
-                </h1>
-                {/* Social Links */}
-                <SocialLinks />
-                {/* Global CSS for animation */}
-                <style
-                    jsx
-                    global
-                >{`
-                    @keyframes rotate {
-                        from {
-                            transform: rotate(0deg);
-                        }
-                        to {
-                            transform: rotate(360deg);
-                        }
+        <nav className='relative px-3 py-3 sm:px-6 sm:py-4 lg:px-8 lg:py-6 flex items-center justify-between w-full max-w-screen-xl mx-auto mt-6'>
+            {/* Logo aligned left */}
+            <Link
+                href='/'
+                className='flex items-center'
+            >
+                <RotatingLogo />
+            </Link>
+            {/* Branding – hidden on small devices */}
+            <h1 className='hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 sm:block text-xl md:text-3xl lg:text-4xl font-black tracking-tight text-center'>
+                DappRush<span className='text-brand-primary'>.</span>
+            </h1>
+            {/* Social Links */}
+            <SocialLinks />
+            {/* Global CSS for animation */}
+            <style
+                jsx
+                global
+            >{`
+                @keyframes rotate {
+                    from {
+                        transform: rotate(0deg);
                     }
-                    @media (prefers-reduced-motion: reduce) {
-                        .animate-spin {
-                            animation: none;
-                        }
+                    to {
+                        transform: rotate(360deg);
                     }
-                `}</style>
-            </nav>
-        </Wrapper>
+                }
+                @media (prefers-reduced-motion: reduce) {
+                    .animate-spin {
+                        animation: none;
+                    }
+                }
+            `}</style>
+        </nav>
     );
 }

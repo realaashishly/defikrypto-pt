@@ -27,9 +27,8 @@ export default function AppointmentBooking() {
         });
     }, []);
 
-    return (
-        <Wrapper>
-            <div className='w-full relative h-screen flex flex-col items-center justify-center px-4 md:px-8 lg:px-12'>
+    return (  
+            <div className='w-full relative flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 my-24 overflow-hidden'>
                 <SpotlightCard
                     className='custom-spotlight-card p-6 md:p-12 lg:p-24 border-brand-yellow/60 bg-brand-yellow/10'
                     spotlightColor='rgba(217, 179, 67, 0.5)'
@@ -42,8 +41,8 @@ export default function AppointmentBooking() {
                             <p className='text-base md:text-lg lg:text-xl text-muted-foreground leading-snug md:leading-relaxed max-w-2xl mx-auto px-4'>
                                 Take the first step towards transforming your
                                 business with our expert services. Book a
-                                consultation to discuss how we can collaborate to
-                                achieve your goals.
+                                consultation to discuss how we can collaborate
+                                to achieve your goals.
                             </p>
                         </div>
                         <Link
@@ -57,23 +56,26 @@ export default function AppointmentBooking() {
                     </div>
                 </SpotlightCard>
                 {/* Animated Background Images */}
-                <Image
-                    ref={rock1Ref}
-                    src='/images/bg/rock6.svg'
-                    alt='blockchain-distribution'
-                    width={200}
-                    height={200}
-                    className='absolute top-10 left-0 -z-10 rotate-45'
-                />
-                <Image
-                    ref={rock2Ref}
-                    src='/images/bg/rock3.svg'
-                    alt='blockchain-distribution'
-                    width={200}
-                    height={200}
-                    className='absolute bottom-10 right-0 -z-10'
-                />
+                <div className='absolute -z-10 top-10 left-0 w-[25%] max-w-[150px] sm:max-w-[180px]'>
+                    <Image
+                        ref={rock1Ref}
+                        src='/images/bg/rock6.svg'
+                        alt='blockchain-distribution'
+                        width={200}
+                        height={200}
+                        className='object-contain rotate-45'
+                    />
+                </div>
+                <div className='absolute -z-10 bottom-10 right-0 w-[25%] max-w-[150px] sm:max-w-[180px]'>
+                    <Image
+                        ref={rock2Ref}
+                        src='/images/bg/rock3.svg'
+                        alt='blockchain-distribution'
+                        width={200}
+                        height={200}
+                        className='object-contain'
+                    />
+                </div>
             </div>
-        </Wrapper>
     );
 }
