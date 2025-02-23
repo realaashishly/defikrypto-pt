@@ -28,7 +28,7 @@ export default function AppointmentBooking() {
     }, []);
 
     return (  
-            <div className='w-full relative flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 my-24 overflow-hidden'>
+            <div className='w-full relative flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 my-24 '>
                 <SpotlightCard
                     className='custom-spotlight-card p-6 md:p-12 lg:p-24 border-brand-yellow/60 bg-brand-yellow/10 z-50'
                     spotlightColor='rgba(217, 179, 67, 0.5)'
@@ -59,7 +59,7 @@ export default function AppointmentBooking() {
                 <div className='absolute -z-10 top-10 left-0 w-[25%] max-w-[150px] sm:max-w-[180px]'>
                     <Image
                         ref={rock1Ref}
-                        src='/images/bg/rock6.svg'
+                        src='/images/bg/rock5.svg'
                         alt='blockchain-distribution'
                         width={200}
                         height={200}

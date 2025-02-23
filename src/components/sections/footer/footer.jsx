@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 export default function FooterSection() {
     return (
-        <footer className='w-full px-1 py-6 sm:py-8 overflow-hidden my-12'>
+        <footer className='w-full p-2 overflow-hidden'>
             <div className='mx-auto max-w-container'>
                 <Footer className='pt-0'>
                     <FooterBottom className='mt-0 flex flex-col items-center gap-4 sm:gap-6 md:flex-row md:justify-between'>
