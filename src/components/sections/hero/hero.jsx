@@ -86,10 +86,21 @@ export default function Hero() {
 
             {/* 3D Visualization with Decorative Rocks */}
             <div className='w-full relative max-w-4xl h-[60vh] sm:h-[65vh] md:h-[95vh] max-h-[700px] mt-12 md:mt-16'>
-                <Spline
-                    scene='https://prod.spline.design/Tq4nAM0x1iaR7TS3/scene.splinecode'
-                    className='w-full h-full rounded-xl object-contain'
-                />
+                <div className='hidden md:block w-full h-full rounded-xl object-contain'>
+                    <Spline
+                        scene='https://prod.spline.design/Tq4nAM0x1iaR7TS3/scene.splinecode'
+                        className='w-full h-full rounded-xl object-contain'
+                    />
+                </div>
+                <div className='md:hidden w-full h-full rounded-xl'>
+                    <Image
+                        src='/images/radial-glass.gif'
+                        alt='3D scene'
+                        width={500}
+                        height={500}
+                        className='w-full h-full rounded-xl object-cover'
+                    />
+                </div>
 
                 {/* Rock 3 */}
                 <div className='absolute z-10 -bottom-6 right-0 md:-right-0 md:-bottom-24  w-[24%] max-w-[150px] sm:max-w-[200px] rotate-90'>

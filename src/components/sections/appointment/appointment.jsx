@@ -30,7 +30,7 @@ export default function AppointmentBooking() {
     return (  
             <div className='w-full relative flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 my-24 overflow-hidden'>
                 <SpotlightCard
-                    className='custom-spotlight-card p-6 md:p-12 lg:p-24 border-brand-yellow/60 bg-brand-yellow/10'
+                    className='custom-spotlight-card p-6 md:p-12 lg:p-24 border-brand-yellow/60 bg-brand-yellow/10 z-50'
                     spotlightColor='rgba(217, 179, 67, 0.5)'
                 >
                     <div className='flex flex-col justify-center items-center space-y-8'>
