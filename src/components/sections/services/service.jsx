@@ -14,88 +14,95 @@ gsap.registerPlugin(ScrollTrigger);
 const portfolioWorks = [
     {
         id: 1,
-        title: '3D Creation',
-        category: 'Modeling',
-        description: '',
+        title: 'Web3 Solutions',
+        category: ' Web3 Development',
+        description:
+            'From 3D web design to advanced mobile app development, we craft immersive Web3 experiences.',
         format: 'video',
         src: '/images/works/3d-dev-video-1.mp4',
         services: [
-            'Modeling',
-            'Animation',
-            'Rendering',
-            'Sculpting',
-            'Texturing',
+            '3D Web Development',
+            '3D  App Design',
+            'UI/UX Design',
+            'Web 3 Expert Consultation',
         ],
     },
     {
         id: 2,
-        title: 'Web3',
-        category: 'Development',
-        description: '',
+        title: 'Crypto & Blockchain',
+        category: ' Blockchain solutions',
+        description:
+            'We specialize in delivering tailored blockchain solutions to power your Web3 vision.',
         format: 'image',
         src: '/images/web3-img-1.png',
         services: [
-            'Blockchain Integration',
-            'Dapp Development',
-            'Smart Contract Development',
-            'NFT Development',
-            'Crypto Development',
+            'Blockchain Development',
+            'Tokenomics',
+            'NFT Marketplace',
+            'Smart Contracts',
+            'ICO, IDO, IEO, Fundraising',
+            'Blockchain Research',
+            'Crypto Market Monitoring',
+            'Crypto Content Creation',
+            'Blockchain Consultation',
         ],
     },
     {
         id: 3,
-        title: 'Crypto',
-        category: 'Development',
-        description: '',
+        title: 'AI/ML Solutions',
+        category: 'Trading strategies.',
+        description:
+            'Unlock the power of AI and machine learning to optimize your Web3 project’s performance and trading strategies.',
         format: 'video',
         src: '/images/works/web-dev-video-1.mp4',
         services: [
-            'Crypto Development',
-            'Cryptocurrency Exchanges',
-            'Crypto Mining',
-            'Crypto Wallets',
+            'AI Chatbots',
+            'AI Agents',
+            'Predictive Analysis',
+            'Algorithmic Trading Strategies',
+            'Algorithmic Trading Bots',
+            'Crypto Price Prediction',
+            'Generative AI',
+            'Sentiment Analysis',
+            'Fraud Detection Models',
+            'Risk Analysis',
         ],
     },
     {
         id: 4,
-        title: 'Mobile Development',
-        category: 'Development',
-        description: '',
+        title: 'Digital Marketing',
+        category: 'Marketing',
+        description:
+            'Our marketing expertise helps you grow your Web3 presence, increase adoption, and drive measurable results.',
         format: 'image',
         src: '/images/mob-dev-img-1.png',
         services: [
-            'Mobile App Development',
-            'iOS Development',
-            'Android Development',
-            'Cross-Platform Development',
+            'Digital Ads Campaigns',
+            'Social Media Marketing',
+            'Influencer Marketing',
+            'Content Creation',
+            'Marketing Automation',
+            'SEO',
+            'Website Auditing',
+            'Email Marketing',
+            'Shilling Marketing',
+            'Expert Consultation',
         ],
     },
     {
         id: 5,
-        title: 'Editing',
-        category: 'Video Editing',
+        title: 'Creative Services',
+        category: 'AI-driven solutions',
         description: '',
         format: 'video',
         src: '/images/works/portfolio-video-1.mp4',
         services: [
-            'Video Editing',
-            'Motion Graphics',
-            'Animation',
-            'Special Effects',
-        ],
-    },
-    {
-        id: 6,
-        title: 'Web',
-        category: 'Web Development',
-        description: '',
-        format: 'image',
-        src: '/images/web-dev-img-1.png',
-        services: [
-            'Static Website',
-            'Dynamic Website',
-            '3D Website',
-            'Portfolio Website',
+            'AI Video Editing',
+            'AI-Generated Video',
+            'Motion Design',
+            '3D Animation',
+            '3D Design & Modeling',
+            'AI-Generated Teasers & Videos',
         ],
     },
 ];
@@ -161,7 +168,7 @@ function PortfolioCard({ work }) {
             className='relative overflow-hidden rounded-xl border border-transparent transition-all duration-300 shadow-lg hover:shadow-xl bg-brand-yellow/5 cursor-pointer'
         >
             {/* Media Container */}
-            <div className='relative aspect-video overflow-hidden'>
+            <div className='relative aspect-square  md:aspect-video overflow-hidden'>
                 {work.format === 'image' ? (
                     <Image
                         src={work.src}
@@ -169,7 +176,6 @@ function PortfolioCard({ work }) {
                         width={800}
                         height={450}
                         className='object-cover w-full h-full transition-transform duration-500 hover:scale-105'
-                      
                     />
                 ) : (
                     <video
@@ -188,7 +194,7 @@ function PortfolioCard({ work }) {
             <div className='absolute inset-0 transition-all duration-500 bg-black bg-opacity-5 hover:bg-opacity-90' />
 
             {/* Text Overlay */}
-            <div className='absolute inset-0 pointer-events-none flex justify-between items-end p-6'>
+            <div className='absolute inset-0 pointer-events-none flex justify-between items-end p-1 md:p-6'>
                 <div className='flex flex-col space-y-1'>
                     {work.services.map((service, index) => (
                         <p
@@ -201,10 +207,10 @@ function PortfolioCard({ work }) {
                     ))}
                 </div>
 
-                <div className='absolute bottom-6 right-6 space-y-2 text-right'>
+                <div className='absolute bottom-6 right-0 md:right-6 space-y-2 text-right'>
                     <h3
                         ref={titleRef}
-                        className='text-3xl font-semibold text-white'
+                        className='md:text-3xl font-semibold text-white'
                     >
                         {work.title}
                     </h3>
@@ -268,8 +274,11 @@ export default function Service() {
                         Featured Portfolio
                     </h1>
                     <p className='text-base md:text-lg lg:text-xl text-muted-foreground leading-snug md:leading-relaxed max-w-2xl mx-auto px-4'>
-                        Explore a collection of high-quality, innovative designs
-                        crafted to elevate brands and captivate audiences.
+                        At DappRush, we offer a diverse range of services
+                        designed to help you succeed in the decentralized world
+                        of Web3. From blockchain development to AI-driven
+                        solutions, we provide end-to-end support for your
+                        project’s growth and adoption.
                     </p>
                 </div>
                 <Link

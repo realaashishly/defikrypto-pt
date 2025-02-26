@@ -16,12 +16,12 @@ export const TextReveal = ({ text, className }) => {
     (<div ref={targetRef} className={cn("relative z-0 h-[200vh]", className)}>
       <div
         className={
-          "sticky top-0 mx-auto flex h-[50%] max-w-4xl items-center bg-transparent"
+          "sticky top-0 mx-auto flex h-[50%] max-w-5xl items-center bg-transparent"
         }>
         <p
           ref={targetRef}
           className={
-            "flex flex-wrap text-2xl font-bold text-black/20 dark:text-white/20  md:text-3xl lg:text-4xl xl:text-5xl"
+            "flex flex-wrap text-sm font-bold text-black/20 dark:text-white/20  md:text-3xl"
           }>
           {words.map((word, i) => {
             const start = i / words.length;

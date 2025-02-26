@@ -1,6 +1,7 @@
 "use client";
 import About from "@/components/sections/about/about";
 import AppointmentBooking from "@/components/sections/appointment/appointment";
+import Collaborations from "@/components/sections/collaborations/collaborations";
 import FooterSection from "@/components/sections/footer/footer";
 import Hero from "@/components/sections/hero/hero";
 import Navbar from "@/components/sections/navigation/navbar";
@@ -100,7 +101,7 @@ export default function HomePage() {
           <Hero />
           <About />
           <Rotation />
-          <Partner />
+          <Collaborations />
           <Service />
           <Partner />
           <Pricing />

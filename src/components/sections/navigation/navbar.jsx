@@ -38,7 +38,7 @@ const socialIcons = [
 ];
 
 const SocialLinks = React.memo(() => (
-    <div className='flex gap-2 sm:gap-3'>
+    <div className='flex gap-1 sm:gap-3'>
         {socialIcons.map((icon, index) => (
             <Link
                 key={index}
@@ -101,7 +101,7 @@ const RotatingLogo = React.memo(() => {
 
 export default function Navbar() {
     return (
-        <nav className='relative px-3 py-3 sm:px-6 sm:py-4 lg:px-8 lg:py-6 flex items-center justify-between w-full max-w-screen-xl mx-auto mt-6'>
+        <nav className='relative  py-3 sm:px-6 sm:py-4 lg:px-8 lg:py-6 flex items-center justify-between w-full max-w-screen-xl mx-auto mt-6'>
             {/* Logo aligned left */}
             <Link
                 href='/'

@@ -19,10 +19,10 @@ const TextPressure = ({
 
   textColor = "#D9B343",
   strokeColor = "#FF0000",
-  strokeWidth = 8,
-  className = "",
+  strokeWidth,
+  className,
 
-  minFontSize = 3,
+  minFontSize ,
 }) => {
   const containerRef = useRef(null);
   const titleRef = useRef(null);

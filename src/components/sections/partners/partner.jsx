@@ -1,16 +1,16 @@
 'use client';
 import { Marquee } from '@/components/magicui/marquee';
-import Wrapper from '@/components/wrapper';
 import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 
 const partners = [
-    'Google',
-    'Microsoft',
-    'Facebook',
-    'Apple',
-    'Oracle',
-    'Amazon',
+    'AppiVa Software',
+    'Ashfield',
+    'Bill Safe',
+    'Bombay Play',
+    'Calibr',
+    'Trust Enterprises',
+    'Bhutani Infra',
 ];
 
 const RotatingLogo = React.memo(() => {

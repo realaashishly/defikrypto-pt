@@ -46,11 +46,11 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className='flex flex-col relative items-center justify-center w-full px-1 py-12 md:py-20 lg:py-24 xl:py-28 overflow-hidden my-12'>
+        <section className='flex flex-col relative items-center justify-center w-full py-12 md:py-20 lg:py-24 xl:py-28 overflow-hidden my-12'>
             {/* Text Content */}
             <div className='w-full md:max-w-4xl relative text-center flex flex-col items-center gap-6 p-1 sm:p-6 '>
                 {/* Heading */}
-                <h1 className='text-2xl sm:text-5xl  font-bold uppercase leading-tight '>
+                <h1 className='text-xl md:text-5xl  font-bold uppercase leading-tight '>
                     <div className='flex flex-wrap items-center justify-center gap-3 sm:gap-4'>
                         <span>Fueling your growth</span>
                         {/* Image inside heading */}
@@ -66,10 +66,12 @@ export default function Hero() {
                     </div>
                     <span>in web3 solutions with</span>
                     <TextPressure
-                        text='Limitless ✦ Creativity'
+                        text='Innovation ✦ Disruption'
                         fontFamily='inter'
                         textColor='#D9B343'
                         minFontSize={5}
+                        strokeWidth={4}
+                        className="text-xl"
                     />
                 </h1>
 
@@ -79,7 +81,7 @@ export default function Hero() {
                     className='group transition-transform hover:scale-105 active:scale-95'
                 >
                     <InteractiveHoverButton className='px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg lg:text-xl'>
-                        Book a call
+                        Book an appointment
                     </InteractiveHoverButton>
                 </Link>
             </div>
