@@ -1,8 +1,7 @@
 'use client';
 import { OrbitingCircles } from '@/components/magicui/orbiting-circles';
-import Wrapper from '@/components/wrapper';
 import Image from 'next/image';
-import { useMemo, useRef } from 'react';
+import { React, useMemo, memo, useRef, useEffect } from 'react';
 
 export default function Rotation() {
     const orbitRefs = useRef([]);
@@ -20,12 +19,7 @@ export default function Rotation() {
                 <div className='relative flex min-h-screen w-full flex-col items-center justify-center'>
                     {/* Center logo */}
                     <div className='absolute inset-0 flex items-center justify-center'>
-                        <Image
-                            src={'/icons/logo.png'}
-                            alt='Logo'
-                            width={120}
-                            height={120}
-                        />
+                        <RotatingLogo />
                     </div>
 
                     <OrbitingCircles
@@ -77,8 +71,28 @@ export default function Rotation() {
                         <Icons.coin10 />
                     </OrbitingCircles>
                 </div>
+                <style
+                    jsx
+                    global
+                >{`
+                    @keyframes rotate {
+                        from {
+                            transform: rotate(0deg);
+                        }
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+                    .animate-spin-slow {
+                        animation: rotate 12s linear infinite;
+                    }
+                    @media (prefers-reduced-motion: reduce) {
+                        .animate-spin-slow {
+                            animation: none;
+                        }
+                    }
+                `}</style>
             </div>
-            
         </>
     );
 }
@@ -569,3 +583,44 @@ const Icons = {
         </svg>
     ),
 };
+
+const RotatingLogo = memo(() => {
+    const ringRef = useRef(null);
+
+    useEffect(() => {
+        if (ringRef.current) {
+            ringRef.current.style.animation = 'rotate 12s linear infinite';
+        }
+        return () => {
+            if (ringRef.current) {
+                ringRef.current.style.animation = '';
+            }
+        };
+    }, []);
+
+    return (
+        <div className='relative flex justify-center items-center w-28 h-28 sm:w-40 sm:h-40'>
+            <div
+                ref={ringRef}
+                className='absolute w-full h-full animate-spin-slow'
+            >
+                <Image
+                    src='/images/defi_rec_cr.png'
+                    alt='Rotating Ring'
+                    layout='fill'
+                    objectFit='contain'
+                    aria-hidden='true'
+                />
+            </div>
+            <div className='relative w-16 h-16 sm:w-20 sm:h-20'>
+                <Image
+                    src='/icons/defi_rec_tr.1.svg'
+                    alt='DefiKrypto Logo'
+                    layout='fill'
+                    objectFit='contain'
+                    aria-hidden='true'
+                />
+            </div>
+        </div>
+    );
+});
