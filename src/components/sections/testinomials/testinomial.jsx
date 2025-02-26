@@ -11,7 +11,7 @@ import Image from 'next/image';
 
 gsap.registerPlugin(useGSAP);
 
-export function Testimonial() {
+export default function Testimonial() {
     const rockRefs = useRef([]);
 
     useGSAP(() => {

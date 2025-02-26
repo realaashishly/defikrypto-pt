@@ -8,7 +8,6 @@ export default function Wrapper({ children, className }) {
                 className
             )}
         >
-            {/* Main Content – higher z-index */}
             <div className='relative z-10 w-full'>{children}</div>
         </div>
     );

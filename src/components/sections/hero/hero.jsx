@@ -1,12 +1,14 @@
 'use client';
 import TextPressure from '@/blocks/TextAnimations/TextPressure/TextPressure';
 import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button';
-import Spline from '@splinetool/react-spline';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useLayoutEffect, useRef } from 'react';
+import { lazy, useLayoutEffect, useRef } from 'react';
+
+const Spline = lazy(() => import('@splinetool/react-spline'));
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
@@ -61,6 +63,7 @@ export default function Hero() {
                                 width={56}
                                 height={56}
                                 className='object-contain animate-float'
+                                loading='eager'
                             />
                         </span>
                     </div>

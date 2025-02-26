@@ -1,9 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
-import Wrapper from '@/components/wrapper';
+import React, { useEffect, useRef } from 'react';
 
 // Updated socialIcons array with fill="currentColor" added to each SVG
 const socialIcons = [
@@ -83,6 +82,7 @@ const RotatingLogo = React.memo(() => {
                     height={64}
                     className='object-contain w-full h-full z-50'
                     aria-hidden='true'
+                    loading='eager'
                 />
             </div>
             <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12'>
@@ -93,6 +93,7 @@ const RotatingLogo = React.memo(() => {
                     height={40}
                     className='object-contain w-full h-full'
                     aria-hidden='true'
+                    loading='eager'
                 />
             </div>
         </div>

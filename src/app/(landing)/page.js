@@ -1,19 +1,22 @@
 "use client";
-import About from "@/components/sections/about/about";
-import AppointmentBooking from "@/components/sections/appointment/appointment";
-import Collaborations from "@/components/sections/collaborations/collaborations";
-import FooterSection from "@/components/sections/footer/footer";
-import Hero from "@/components/sections/hero/hero";
-import Navbar from "@/components/sections/navigation/navbar";
-import Partner from "@/components/sections/partners/partner";
-import Pricing from "@/components/sections/pricing/pricing";
-import Rotation from "@/components/sections/rotation/rotation";
-import Service from "@/components/sections/services/service";
-import { Testimonial } from "@/components/sections/testinomials/testinomial";
+
+const Navbar = dynamic(() => import("@/components/sections/navigation/navbar"), { ssr: false });
+const Hero = dynamic(() => import("@/components/sections/hero/hero"));
+const About = dynamic(() => import("@/components/sections/about/about"));
+const Service = dynamic(() => import("@/components/sections/services/service"));
+const Pricing = dynamic(() => import("@/components/sections/pricing/pricing"));
+const Testimonial = dynamic(() => import("@/components/sections/testinomials/testinomial"));
+const Partner = dynamic(() => import("@/components/sections/partners/partner"));
+const Collaborations = dynamic(() => import("@/components/sections/collaborations/collaborations"));
+const AppointmentBooking = dynamic(() => import("@/components/sections/appointment/appointment"));
+const Rotation = dynamic(() => import("@/components/sections/rotation/rotation"));
+const FooterSection = dynamic(() => import("@/components/sections/footer/footer"), { ssr: false });
+
 import { Button } from "@/components/ui/button";
 import Wrapper from "@/components/wrapper";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 
 // Loading Screen Component
@@ -95,22 +98,22 @@ export default function HomePage() {
       {!entered && <LoadingScreen onEnter={() => setEntered(true)} />}
 
       {/* Load the main content in the background */}
-      <div className={`transition-opacity duration-700 ${entered ? "opacity-100" : "opacity-0"}`}>
-        <Wrapper>
-          <Navbar />
-          <Hero />
-          <About />
-          <Rotation />
-          <Collaborations />
-          <Service />
-          <Partner />
-          <Pricing />
-          <Testimonial />
-          <AppointmentBooking />
-          <FooterSection />
-        </Wrapper>
-      </div>
+      {/* <div className={`transition-opacity duration-700 ${entered ? "opacity-100" : "opacity-0"}`}> */}
+      <Wrapper>
+        <Navbar />
+        <Hero />
+        <About />
+        <Rotation />
+        <Collaborations />
+        <Service />
+        <Partner />
+        <Pricing />
+        <Testimonial />
+        <AppointmentBooking />
+        <FooterSection />
+      </Wrapper>
     </div>
+    // </div>
 
 
   );
