@@ -52,7 +52,7 @@ export default function About() {
                         <span className='text-zinc-700'>Founder, CEO</span>
                     </h3>
                     <Link
-                        href='#'
+                        href='www.linkedin.com/in/md-saklain-jawed-3772271b3'
                         prefetch={false}
                         className='cursor-pointer'
                     >
