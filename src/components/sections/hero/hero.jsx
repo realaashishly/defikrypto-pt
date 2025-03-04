@@ -52,7 +52,7 @@ export default function Hero() {
             {/* Text Content */}
             <div className='w-full md:max-w-4xl relative text-center flex flex-col items-center gap-6 p-1 sm:p-6 '>
                 {/* Heading */}
-                <h1 className='text-xl md:text-5xl  font-bold uppercase leading-tight '>
+                <h1 className='text-xl lg:text-5xl  font-bold uppercase leading-tight '>
                     <div className='flex flex-wrap items-center justify-center gap-3 sm:gap-4'>
                         <span>Fueling your growth</span>
                         {/* Image inside heading */}
@@ -72,7 +72,7 @@ export default function Hero() {
                         text='Innovation ✦ Disruption'
                         fontFamily='inter'
                         textColor='#D9B343'
-                        minFontSize={5}
+                        minFontSize={2}
                         strokeWidth={4}
                         className="text-xl"
                     />

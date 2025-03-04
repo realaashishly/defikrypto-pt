@@ -68,65 +68,54 @@ export default function Partner() {
     const secondRow = partners.slice(halfIndex);
 
     return (
-            <div className='flex flex-col items-center justify-center w-full  py-12 my-12'>
-                <div className='mb-12'>
-                    <h5 className='text-xl uppercase text-center'>
-                        Our Esteemed Partners
-                    </h5>
-                </div>
-                <div className='relative flex flex-col items-center justify-center overflow-hidden w-full'>
-                    <Marquee
-                        pauseOnHover
-                        className='w-full [--duration:15s]'
-                    >
-                        {firstRow.map((partner, index) => (
-                            <ReviewCard
-                                key={index}
-                                partner={partner}
-                            />
-                        ))}
-                    </Marquee>
-                    <div className='absolute w-full flex justify-center my-8 overflow-hidden'>
-                        <div className='glassmorphic-card w-40 h-40 sm:w-72 sm:h-72 flex items-center justify-center rounded-full border border-yellow-500/20 z-10'>
-                            <RotatingLogo />
-                        </div>
-                    </div>
-                    <Marquee
-                        reverse
-                        pauseOnHover
-                        className='w-full [--duration:15s]'
-                    >
-                        {secondRow.map((partner, index) => (
-                            <ReviewCard
-                                key={index}
-                                partner={partner}
-                            />
-                        ))}
-                    </Marquee>
-                    <div className='pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-transparent'></div>
-                    <div className='pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-transparent'></div>
-                </div>
-                <style
-                    jsx
-                    global
-                >{`
-                    @keyframes rotate {
-                        from {
-                            transform: rotate(0deg);
-                        }
-                        to {
-                            transform: rotate(360deg);
-                        }
-                    }
-                    .animate-spin-slow {
-                        animation: rotate 12s linear infinite;
-                    }
-                    @media (prefers-reduced-motion: reduce) {
-                        .animate-spin-slow {
-                            animation: none;
-                        }
-                    }
-                `}</style>
+        <div className='flex flex-col items-center justify-center w-full  py-12 my-12'>
+            <div className='mb-12'>
+                <h5 className='text-xl uppercase text-center'>
+                    Our Esteemed Partners
+                </h5>
             </div>
+            <div className='relative flex flex-col items-center justify-center overflow-hidden w-full'>
+                <div className='absolute w-full flex justify-center my-8 overflow-hidden'>
+                    <div className='glassmorphic-card w-40 h-40 sm:w-72 sm:h-72 flex items-center justify-center rounded-full border border-yellow-500/20 z-10'>
+                        <RotatingLogo />
+                    </div>
+                </div>
+                <Marquee pauseOnHover className='w-full [--duration:15s]'>
+                    {firstRow.map((partner, index) => (
+                        <ReviewCard key={index} partner={partner} />
+                    ))}
+                </Marquee>
+
+                <Marquee
+                    reverse
+                    pauseOnHover
+                    className='w-full [--duration:15s]'
+                >
+                    {secondRow.map((partner, index) => (
+                        <ReviewCard key={index} partner={partner} />
+                    ))}
+                </Marquee>
+                <div className='pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-transparent'></div>
+                <div className='pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-transparent'></div>
+            </div>
+            <style jsx global>{`
+                @keyframes rotate {
+                    from {
+                        transform: rotate(0deg);
+                    }
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+                .animate-spin-slow {
+                    animation: rotate 12s linear infinite;
+                }
+                @media (prefers-reduced-motion: reduce) {
+                    .animate-spin-slow {
+                        animation: none;
+                    }
+                }
+            `}</style>
+        </div>
     );
 }

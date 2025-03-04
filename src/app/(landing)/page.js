@@ -48,32 +48,35 @@ function LoadingScreen({ onEnter }) {
   }, [showButton]);
 
   return (
-    <div ref={screenRef} className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-      <video
-        ref={videoRef}
-        src="/loader/loader.mp4"
-        autoPlay
-        muted
-        playsInline
-        preload="auto"
-        className="w-full h-full object-cover absolute"
-        aria-label="Loading animation"
-        onEnded={() => setShowButton(true)} // Show button when video ends
-      />
+      <div
+          ref={screenRef}
+          className='fixed inset-0 z-50 flex items-center justify-center bg-black'
+      >
+          <video
+              ref={videoRef}
+              src='https://cdn2.streamvi.com/uploads/1825640459158817.mp4'
+              autoPlay
+              muted
+              playsInline
+              preload='auto'
+              className='w-full h-full object-cover absolute'
+              aria-label='Loading animation'
+              onEnded={() => setShowButton(true)} // Show button when video ends
+          />
 
-      {showButton && (
-        <div className="absolute bottom-16 z-10">
-          <Button
-            ref={btnRef}
-            onClick={onEnter}
-            variant="outline"
-            className="px-6 py-3 text-white border border-white rounded-md opacity-0 scale-90 transition-all duration-300 hover:scale-105 active:scale-95"
-          >
-            Enter Site
-          </Button>
-        </div>
-      )}
-    </div>
+          {showButton && (
+              <div className='absolute bottom-16 z-10'>
+                  <Button
+                      ref={btnRef}
+                      onClick={onEnter}
+                      variant='outline'
+                      className='px-6 py-3 text-white border border-white rounded-md opacity-0 scale-90 transition-all duration-300 hover:scale-105 active:scale-95'
+                  >
+                      Enter Site
+                  </Button>
+              </div>
+          )}
+      </div>
   );
 }
 
